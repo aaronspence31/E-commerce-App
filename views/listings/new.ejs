@@ -2,7 +2,7 @@
 <div class="row">
     <h1 class="text-center">New Listing</h1>
     <div class="col-6 offset-3">
-        <form action="/listings" method="POST">
+        <form action="/listings" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
                 <input class="form-control" type="text" id="title" name="listing[title]">
@@ -14,12 +14,12 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="image">Image</label>
-                <input class="form-control" type="file" id="image" name="listing[image]">
+                <input class="form-control" type="file" id="image" name="image">
             </div>
             <div class="mb-3">
                 <button class="btn btn-success">Add Listing</button>
             </div>
         </form>
-        <a href="/listings">All Listings</a>
+        <a href="/listings" class="btn btn-primary">All Listings</a>
     </div>
 </div>
