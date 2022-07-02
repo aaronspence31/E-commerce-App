@@ -4,12 +4,12 @@
     <div class="col-6 offset-3">
         <form action="/listings/<%=listing._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
-                <label class="form-label" for="title">Title</label>
+                <label class="form-label" for="title">School Name</label>
                 <input class="form-control" type="text" id="title" name="listing[title]"
                     value="<%=listing.title %>">
             </div>
             <div class="mb-3">
-                <label class="form-label" for="description">Description</label>
+                <label class="form-label" for="description">About</label>
                 <textarea class="form-control" type="text" id="description"
                     name="listing[description]"><%= listing.description%></textarea>
             </div>
@@ -18,10 +18,10 @@
                 <input class="form-control" type="file" id="image" name="image">
             </div>
             <div class="mb-3">
-                <button class="btn btn-info">Update Listing</button>
+                <button class="btn btn-success">Update Listing</button>
             </div>
         </form>
-        <a href="/listings/<%= listing._id%>">Back To Listing</a>
+        <a class = "btn btn-primary"href="/listings/<%= listing._id%>">Back To Listing</a>
 
     </div>
 </div>
