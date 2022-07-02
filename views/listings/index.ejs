@@ -1,0 +1,22 @@
+<% layout('boilerplate')%>
+
+<h1>All Listings</h1>
+<div>
+    <a href="/listings/new">Add a Listing</a>
+</div>
+<% for (let listing of listings){%>
+<div class="card" mb-3>
+    <div class="row">
+        <div class="col-md-4">
+            <img class="img-fluid" alt="" src="<%=listing.image%>">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title"><%= listing.title %> </h5>
+                <p class="card-text"><%= listing.description %></p>
+                <a class="btn btn-primary" href="/listings/<%=listing._id%>">View <%=listing.title%></a>
+            </div>
+        </div>
+    </div>
+</div>
+<% }%>

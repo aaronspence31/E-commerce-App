@@ -1,0 +1,27 @@
+<% layout('boilerplate')%>
+<div class="row">
+    <h1 class="text-center">Edit Listing</h1>
+    <div class="col-6 offset-3">
+        <form action="/listings/<%=listing._id%>?_method=PUT" method="POST">
+            <div class="mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" type="text" id="title" name="listing[title]"
+                    value="<%=listing.title %>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" type="text" id="description"
+                    name="listing[description]"><%= listing.description%></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image">Image</label>
+                <input class="form-control" type="file" id="image" name="listing[image]">
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-info">Update Listing</button>
+            </div>
+        </form>
+        <a href="/listings/<%= listing._id%>">Back To Listing</a>
+
+    </div>
+</div>
