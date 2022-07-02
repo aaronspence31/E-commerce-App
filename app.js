@@ -11,8 +11,11 @@ const Listing = require('./listingmodel');
 const multer = require('multer');
 const { storage } = require('./cloudinary');
 const upload = multer({ storage });
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/listing-app';
 
-mongoose.connect('mongodb://localhost:27017/listing-app', {
+
+//Old local db: 'mongodb://localhost:27017/listing-app'
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     //useCreateIndex: true,
     useUnifiedTopology: true,
@@ -54,7 +57,7 @@ app.post('/listings', upload.single('image'), async (req, res) => {
     const listing = new Listing(req.body.listing)
     listing.image = {url: req.file.path, filename: req.file.filename};
     await listing.save();
-    res.redirect(`/listings/${listing._id}`);
+    res.redirect('/listings');
 })
 //Access info on a specific listing
 app.get('/listings/:id', async (req, res,) => {
